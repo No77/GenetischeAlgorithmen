@@ -13,6 +13,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import General.GeneticAlgorithm;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,7 +43,11 @@ public class GeneticAlgorithmTest {
     
     @Test
     public void testPopulation() {
-        //GeneticAlgorithm.GeneticAlgorithm(50, 1000, Examples.SEQ20bits);
-        GeneticAlgorithm.GeneticAlgorithm(500, 20000, Examples.SEQ20bits);
+        try {
+            //GeneticAlgorithm.GeneticAlgorithm(50, 1000, Examples.SEQ20bits);
+            GeneticAlgorithm.GeneticAlgorithm(500, 20000, Examples.SEQ20bits);
+        } catch (IOException ex) {
+            Logger.getLogger(GeneticAlgorithmTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

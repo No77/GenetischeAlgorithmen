@@ -86,7 +86,7 @@ public class Fitness {
         return (2*min)+2;
     }
     
-    private static AminoAcid[] getAminoAcids2(int[] sequence, Point[] points){
+    public static AminoAcid[] getAminoAcids2(int[] sequence, Point[] points){
         AminoAcid[] aminos = new AminoAcid[sequence.length];
         
         for(int i = 0; i < sequence.length; i++){
@@ -123,7 +123,7 @@ public class Fitness {
         return points;
     }
     
-    private static Point[] getPoints2(int[] d){
+    public static Point[] getPoints2(int[] d){
         Point[] points = new Point[d.length + 1];
         Point active = new Point(0,0);
         int index = 0;
