@@ -16,33 +16,33 @@ import java.util.Random;
  */
 public class GeneticAlgorithm {
     public static Fold GeneticAlgorithm(int maxGeneration, int generationSize, int[] sequence) throws IOException{
-        //FileWriter writer = new FileWriter("C:\\Users\\Malte\\Documents\\Uni\\5.Semester\\GA\\ga.csv");
-        Population p = new Population(sequence, generationSize);
-        p.EvaluateFitness();
-        
-        while(maxGeneration > 0 && p.best.getFitness() < 0.75){
-            p.FitnessBasedSelection(generationSize);
-            p.crossover(0.25);
-            p.mutation(0.01);
+        Population p;
+        int generation = maxGeneration;
+        try (FileWriter writer = new FileWriter("C:\\Users\\Malte\\Documents\\Uni\\5.Semester\\GA\\ga.csv")) {
+            p = new Population(sequence, generationSize);
             p.EvaluateFitness();
-            int mutations = 0;
-            for(Fold f : p.folds){
-                if(f.getChanged()==true){
-                    mutations++;
-                    f.setChanged(false);
-                }
-            }
-            maxGeneration--;
-            //writer.append("" + p.best.getFitness());
-	    //writer.append('\n');
-            System.out.println("Average Fitness: " + p.averageFitness);
-            System.out.println("   Best Fitness: " + p.best.getFitness()); 
-            System.out.println("      Mutations: " + mutations);
-            System.out.println("     Generation: " + (500 - maxGeneration));
+            //
+            while(generation > 0 && p.best.getFitness() < 0.55){
+                p.FitnessBasedSelection(generationSize);
+                p.crossover(0.25);
+                p.mutation(0.01);
+                p.EvaluateFitness();
+                int mutations = Fold.mutation;
+                generation--;
+                
+                String test = ("" + p.averageFitness).replace(".", ",");
+                writer.append(test);
+                writer.append('\n');
+                
+                System.out.println("Average Fitness: " + p.averageFitness);
+                System.out.println("   Best Fitness: " + p.best.getFitness());
+                System.out.println("      Mutations: " + mutations);
+                System.out.println("     Generation: " + (maxGeneration-generation));
+                Fold.mutation = 0;
+            }   
+            System.out.println(p.best.toString() + p.best.directions.length);
+            writer.flush();
         }
-        System.out.println(p.best.toString());
-        //writer.flush();
-	//writer.close();
         return p.best;
     }
     

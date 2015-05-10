@@ -22,6 +22,8 @@ public class Fold {
     
     private boolean changed;
     
+    public static int mutation = 0;
+    
     public Fold(int[] s, int[] d){
         changed = false;
         sequence = s;
@@ -81,6 +83,7 @@ public class Fold {
                 int new_direction = GeneticAlgorithm.randInt(0, 2);
                 directions[i] = new_direction;
                 changed = true;
+                mutation++;
             }
         }
     }
@@ -106,6 +109,7 @@ public class Fold {
 
             changed = true;
             f.setChanged(true);
+            mutation++;
         //}
     }
     
