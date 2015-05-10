@@ -33,6 +33,7 @@ public class GeneticAlgorithm {
             System.out.println("Average Fitness: " + p.averageFitness);
             System.out.println("   Best Fitness: " + p.best.getFitness()); 
             System.out.println("      Mutations: " + mutations);
+            System.out.println("     Generation: " + (500 - maxGeneration));
             //System.out.println(p.toString() + " " + mutations);
         }
     }

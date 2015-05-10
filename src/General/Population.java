@@ -104,7 +104,7 @@ public class Population {
         for (int i = 0; i < counter.length; i++) {
             if(counter[i]>0){
                 for (int j = 0; j < counter[i]; j++) {
-                    newPopulation[index_2] = folds[i];
+                    newPopulation[index_2] = new Fold(folds[i].sequence, folds[i].directions);
                     index_2++;
                 }
             }
