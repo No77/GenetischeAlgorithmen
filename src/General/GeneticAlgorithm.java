@@ -17,7 +17,7 @@ public class GeneticAlgorithm {
         Population p = new Population(sequence, generationSize);
         p.EvaluateFitness();
         
-        while(maxGeneration>0){
+        while(maxGeneration > 0 && p.best.getFitness() < 0.8){
             p.FitnessBasedSelection(generationSize);
             p.crossover(0.25);
             p.mutation(0.01);
@@ -34,8 +34,8 @@ public class GeneticAlgorithm {
             System.out.println("   Best Fitness: " + p.best.getFitness()); 
             System.out.println("      Mutations: " + mutations);
             System.out.println("     Generation: " + (500 - maxGeneration));
-            //System.out.println(p.toString() + " " + mutations);
         }
+        System.out.println(p.best.toString());
     }
     
     public static int randInt(int min, int max) {
