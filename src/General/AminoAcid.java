@@ -10,8 +10,10 @@ import java.awt.Point;
 import java.util.Objects;
 
 /**
- *
- * @author Malte
+ * Class holding an int representing an aminoacid (hydrophobe = 1, hydrophil = 0)
+ * As well as a Point representing the coordinate of an aminoacid in 2D coordinate 
+ * system.
+ * @author Malte Lammers
  */
 public class AminoAcid {
     public int hydrophobe;

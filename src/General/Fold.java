@@ -1,6 +1,7 @@
 package General;
 
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 /*
@@ -72,6 +73,71 @@ public class Fold {
             if(c=='R'){
                directions[i] = 2; 
             }
+        }
+    }
+    
+    public AminoAcid[] getAminoAcids(){
+        AminoAcid[] aminos = new AminoAcid[sequence.length];
+        Point[] points = getPoints(directions);
+        
+        for(int i = 0; i < sequence.length; i++){
+            aminos[i] = new AminoAcid(sequence[i], points[i]);
+        }
+        
+        return aminos;    }
+    
+    private Point[] getPoints(int[] d){
+        Point[] points = new Point[d.length + 1];
+        Point active = new Point(0,0);
+        int index = 0;
+        points[index] = active;
+        index++;
+        Point vector = new Point(0,1);
+        
+        for (int i = 0; i < d.length; i++) {
+            vector = getVectorFromDirection(vector, d[i]);
+            Point newPoint = new Point(active.x + vector.x, active.y + vector.y);
+            points[index] = newPoint;
+            index++;
+            vector = new Point(newPoint.x - active.x, newPoint.y - active.y);
+            active = newPoint;
+        }
+        return points;
+    }
+    
+    private Point getVectorFromDirection(Point vector, int direction){
+        
+        switch(direction){
+            case 0:
+                return vector;
+            case 1:
+                if(vector.equals(new Point(0,1))){
+                    return new Point(-1,0);
+                }
+                if(vector.equals(new Point(1,0))){
+                    return new Point(0,1);
+                }
+                if(vector.equals(new Point(0,-1))){
+                    return new Point(1,0);
+                }
+                if(vector.equals(new Point(-1,0))){
+                    return new Point(0,-1);
+                }
+            case 2:
+                if(vector.equals(new Point(0,1))){
+                    return new Point(1,0);
+                }
+                if(vector.equals(new Point(1,0))){
+                    return new Point(0,-1);
+                }
+                if(vector.equals(new Point(0,-1))){
+                    return new Point(-1,0);
+                }
+                if(vector.equals(new Point(0,-1))){
+                    return new Point(0,1);
+                }
+            default: 
+                return new Point(0,1);
         }
     }
     

@@ -37,8 +37,7 @@ public class Drawing extends JPanel {
     private AminoAcid[] scores;
 
     public Drawing(Fold f) {
-        Point[] points = Fitness.getPoints2(f.directions);
-        scores = Fitness.getAminoAcids2(f.sequence, points);
+        scores = f.getAminoAcids();
     }
 
     @Override
@@ -87,7 +86,7 @@ public class Drawing extends JPanel {
     private static void createAndShowGui() {
 
         try {
-            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 20000, Examples.SEQ50bits);
+            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 50000, Examples.SEQ20bits);
             Drawing mainPanel = new Drawing(f);
             JFrame frame = new JFrame("DrawGraph");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,7 +94,6 @@ public class Drawing extends JPanel {
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
-            
         } catch (IOException ex) {
             Logger.getLogger(Drawing.class.getName()).log(Level.SEVERE, null, ex);
         }
