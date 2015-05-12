@@ -24,7 +24,7 @@ public class Fitness {
         return first/second/maxPairs;
     }
     
-    private static int getMaxPairs(int[] sequence){
+    public static int getMaxPairs(int[] sequence){
         double maxPairs;
         int even = 0;
         int odd = 0;
@@ -53,8 +53,6 @@ public class Fitness {
     }
     
     private static double FitnessFirst(AminoAcid[] aminos){
-        //entfernung vom optimalwert nach oben und unten berücksichtigen
-        
         int count = 0;
         Point up;
         Point down;
@@ -251,5 +249,23 @@ public class Fitness {
             points[i] = aminos[i].coordinate;
         }
         return points;
+    }
+    
+    public static void printIndividualFitness(Fold f){
+        AminoAcid[] aminos = f.getAminoAcids();
+        
+        Point[] points = getPoints(aminos);
+        
+        double first = FitnessFirst(aminos);
+        
+        double second = FitnessSecond(points);
+        
+        int maxPairs = getMaxPairs(f.sequence);
+        
+        System.out.println("************************");
+        System.out.println("Minimale Energie: -" + first);
+        System.out.println("Überschneidungen: " + (second -1));
+        System.out.println("           Paare: " + maxPairs);
+        System.out.println("************************");
     }
 }

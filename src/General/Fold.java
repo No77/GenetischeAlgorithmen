@@ -195,6 +195,12 @@ public class Fold {
         return myDirections.toString() + " " + fitness;
     }
     
+    public int getMinimalEnergy(){
+        int maxPairs = Fitness.getMaxPairs(sequence);
+        
+        return (int)(maxPairs*fitness)*-1;
+    }
+    
     public int[] getSequence(){
         return sequence;
     }

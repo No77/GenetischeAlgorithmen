@@ -86,7 +86,7 @@ public class Drawing extends JPanel {
     private static void createAndShowGui() {
 
         try {
-            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 50000, Examples.SEQ20bits);
+            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 5000, Examples.SEQ48bits);
             Drawing mainPanel = new Drawing(f);
             JFrame frame = new JFrame("DrawGraph");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

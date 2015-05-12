@@ -17,6 +17,7 @@ public class Population {
     public Fold best = null;
     public double averageFitness = 0.0;
     public double totalFitness = 0.0;
+    public double diversity = 0.0;
     public int[] sequence;
     
     public Population(int[] aminoSequence){
@@ -53,7 +54,7 @@ public class Population {
     
     public void EvaluateFitness() {
         double avFitness = 0;
-        double bestFitness = 0;
+        double bestFitness = -1.0;
         
         for(int i = 0; i < folds.length; i++){
             double fitness = Fitness.Fitness(folds[i]);
@@ -61,11 +62,45 @@ public class Population {
             avFitness += folds[i].getFitness();
             if(folds[i].getFitness() > bestFitness){
                 best = folds[i];
+                bestFitness = best.getFitness();
             }
         }
         
         totalFitness = avFitness;
         averageFitness = avFitness/folds.length;
+    }
+    
+    //diversity best = 1 worst = 0 (% of different members)
+    public void geneticDiversity(){
+        double length = (double)folds.length;
+        double div = 0.0;
+        for (int i = 0; i < folds.length; i++) {
+            double tempDiv = length;
+            for (int j = i + 1; j < folds.length; j++) {
+                if(compareArrays(folds[i].directions, folds[j].directions)){
+                    tempDiv--;
+                }
+            }
+            div += tempDiv/length;
+        }
+        diversity = div/length;
+    }
+    
+    private boolean compareArrays(int[] a1, int[] a2) {
+        boolean b = true;
+        if (a1 != null && a2 != null){
+          if (a1.length != a2.length)
+              b = false;
+          else
+              for (int i = 0; i < a2.length; i++) {
+                  if (a2[i] != a1[i]) {
+                      b = false;    
+                  }                 
+            }
+        }else{
+          b = false;
+        }
+        return b;
     }
     
     public void FitnessBasedSelection(int size) {
