@@ -5,13 +5,14 @@
         <group>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/Fold.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/Examples.java</file>
+            <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/DrawingGeneticAlgorithm/DrawFoldPanel.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/GeneticAlgorithm.java</file>
+            <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/DrawingGeneticAlgorithm/Drawing.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/AminoAcid.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/HydrophobicPair.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/test/FitnessTest/JUnit4TestSuite.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/test/FitnessTest/GeneticAlgorithmTest.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/Population.java</file>
-            <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/Drawing.java</file>
             <file>file:/C:/Users/Malte/Documents/NetBeansProjects/GenetischeAlgorithmen/src/General/Fitness.java</file>
         </group>
     </open-files>

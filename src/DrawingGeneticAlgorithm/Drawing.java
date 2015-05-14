@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package General;
+package DrawingGeneticAlgorithm;
 
 /**
  *
  * @author Malte
  */
+import General.AminoAcid;
+import General.Examples;
+import General.Fold;
+import General.GeneticAlgorithm;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.io.IOException;
@@ -86,7 +89,7 @@ public class Drawing extends JPanel {
     private static void createAndShowGui() {
 
         try {
-            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 5000, Examples.SEQ48bits);
+            Fold f = GeneticAlgorithm.GeneticAlgorithm(500, 50000, Examples.SEQ48bits);
             Drawing mainPanel = new Drawing(f);
             JFrame frame = new JFrame("DrawGraph");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

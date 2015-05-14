@@ -147,7 +147,7 @@ public class Population {
         folds = newPopulation;
     }
 
-    void crossover(double d) {
+    public void crossover(double d) {
         int percent = (int)(100*d);
         for (int i = 0; i < folds.length; i++) {
             int test = randInt(0, 100);
@@ -158,7 +158,7 @@ public class Population {
         }
     }
 
-    void mutation(double d) {
+    public void mutation(double d) {
         for (Fold fold : folds) {
             fold.mutate(d);
         }
